@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TCR Luxury - Columbus Reputation Leader | Modern Light Theme - Dark Green Accents</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F9FAFB; /* Gray-50 - Main light background */
+            color: #1A202C; /* Very Dark Gray/Almost Black - Default text color */
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            padding-top: 80px; /* Space for fixed navbar */
+        }
+
+        /* --- Custom Scrollbar --- */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F1F5F9; /* Slate-100 */
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #059669; /* Emerald-500 */
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #047857; /* Emerald-600 */
+        }
+
+        /* --- Navigation Bar --- */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.85); 
+            backdrop-filter: blur(12px);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .navbar-scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 3px 6px rgba(0,0,0,0.07);
+        }
+        .nav-link {
+            color: #334155; /* Slate-700 */
+            font-weight: 500;
+            padding: 0.6rem 0.9rem; /* Slightly increased padding */
+            border-radius: 0.375rem; /* rounded-md */
+            transition: color 0.2s ease, background-color 0.2s ease;
+        }
+        .nav-link:hover {
+            color: #047857; /* Emerald-600 */
+            background-color: #ECFDF5; /* Emerald-50 */
+        }
+        .nav-link.active {
+            color: #065F46; /* Emerald-700 */
+            font-weight: 600;
+            background-color: #D1FAE5; /* Emerald-100 */
+        }
+
+        /* --- Buttons --- */
+        .btn {
+            padding: 0.8rem 2rem; /* Increased padding */
+            border-radius: 0.5rem; /* rounded-lg */
+            font-weight: 600;
+            transition: all 0.25s ease-in-out;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: inline-block;
+            line-height: 1.25; /* Ensure text is centered */
+        }
+        .btn-primary {
+            background-color: #059669; /* Emerald-500 */
+            color: #FFFFFF;
+            box-shadow: 0 4px 6px -1px rgba(5, 150, 105, 0.2), 0 2px 4px -1px rgba(5, 150, 105, 0.12);
+        }
+        .btn-primary:hover {
+            background-color: #047857; /* Emerald-600 */
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 10px 15px -3px rgba(4, 120, 87, 0.2), 0 4px 6px -2px rgba(4, 120, 87, 0.15);
+        }
+        .btn-secondary {
+            background-color: transparent;
+            color: #047857; /* Emerald-600 */
+            border: 2px solid #059669; /* Emerald-500 */
+        }
+        .btn-secondary:hover {
+            background-color: #059669; /* Emerald-500 */
+            color: #FFFFFF;
+            transform: translateY(-2px) scale(1.02);
+        }
+        .btn-dark { /* Neutral button */
+            background-color: #E2E8F0; /* Slate-200 */
+            color: #1E293B; /* Slate-800 */
+        }
+        .btn-dark:hover {
+            background-color: #CBD5E1; /* Slate-300 */
+            transform: translateY(-2px);
+        }
+
+        /* --- Section Styling --- */
+        .section-title {
+            font-size: 2.25rem; /* text-3xl or 4xl, adjusted for modern feel */
+            line-height: 2.5rem;
+            font-weight: 800; /* font-extrabold */
+            margin-bottom: 1rem;
+            color: #1E293B; /* Slate-800 */
+            text-align: center;
+        }
+        @media (min-width: 768px) {
+            .section-title {
+                font-size: 2.75rem; /* Slightly larger on md screens */
+                line-height: 3rem;
+            }
+        }
+        .section-subtitle {
+            font-size: 1.125rem; /* text-lg */
+            color: #475569; /* Slate-600 */
+            margin-bottom: 3rem; /* mb-12 */
+            max-width: 700px; 
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            line-height: 1.75;
+        }
+
+        /* --- Card Styles --- */
+        .modern-card { /* Base class for most cards */
+            background-color: #FFFFFF;
+            border-radius: 0.75rem; /* rounded-xl */
+            padding: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #E2E8F0; /* Slate-200 */
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05); /* Softer, more diffused shadow */
+        }
+        .modern-card:hover {
+            transform: translateY(-6px) scale(1.01);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+        .feature-card .icon {
+            font-size: 2.25rem; /* text-3xl */
+            color: #059669; /* Emerald-500 */
+            margin-bottom: 1rem;
+        }
+        .feature-card h4 {
+            color: #064E3B; /* Emerald-800 */
+            font-size: 1.25rem; /* text-xl */
+            font-weight: 600; /* font-semibold */
+            margin-bottom: 0.5rem;
+        }
+        .feature-card p {
+            color: #475569; /* Slate-600 */
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* --- Pricing Card --- */
+        .pricing-plan { /* Inherits from modern-card implicitly if class is added */
+            text-align: center;
+        }
+        .pricing-plan.featured {
+            border-color: #059669; /* Emerald-500 */
+            box-shadow: 0 0 35px rgba(5, 150, 105, 0.15);
+        }
+        .pricing-plan h4 {
+            color: #1E293B; /* Slate-800 */
+            font-size: 1.35rem;
+        }
+        .pricing-plan .price-text {
+            color: #111827; /* Gray-900 */
+            font-size: 3rem; /* text-5xl */
+        }
+        .pricing-plan.featured .price-text {
+            color: #047857; /* Emerald-600 */
+        }
+        .pricing-plan .text-muted {
+            color: #64748B; /* Slate-500 */
+        }
+
+        /* --- Form Input --- */
+        .form-input {
+            background-color: #FFFFFF; 
+            border: 1px solid #CBD5E1; /* Slate-300 */
+            color: #1E293B; /* Slate-800 */
+            border-radius: 0.375rem; /* rounded-md */
+            padding: 0.85rem 1.1rem; /* Slightly more padding */
+            width: 100%;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+        .form-input::placeholder {
+            color: #94A3B8; /* Slate-400 */
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: #059669; /* Emerald-500 */
+            box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.15);
+        }
+        .form-label {
+            color: #334155; /* Slate-700 */
+            margin-bottom: 0.5rem;
+            display: block;
+            font-weight: 500;
+        }
+        .form-container { /* Inherits from modern-card implicitly if class is added */
+            padding: 2.5rem; /* More padding */
+        }
+
+        /* --- FAQ --- */
+        .faq-item { /* Inherits from modern-card implicitly if class is added */
+            padding: 0; /* Padding handled by button and content */
+            overflow: hidden;
+        }
+        .faq-item button {
+            color: #1E293B; /* Slate-800 */
+            padding: 1.25rem 1.5rem; /* More padding */
+            font-size: 1.1rem;
+        }
+        .faq-item button:hover {
+            color: #047857; /* Emerald-600 */
+            background-color: #F8FAFC; /* Slate-50 */
+        }
+        .faq-item svg {
+            color: #64748B; /* Slate-500 */
+            transition: transform 0.3s ease;
+        }
+        .faq-content {
+            background-color: #F8FAFC; /* Slate-50 */
+            padding: 1.5rem;
+            color: #475569; /* Slate-600 */
+            border-top: 1px solid #E2E8F0; /* Slate-200 */
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Utility for gradient text */
+        .text-gradient {
+            background: linear-gradient(to right, #065F46, #059669, #10B981); /* Dark to Med Greens */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+
+        /* Specific section background colors */
+        .bg-section-subtle {
+            background-color: #FFFFFF;
+        }
+        .bg-section-accented { /* "Don't Lose Consumers" cards */
+            background-color: #F0FDF4; /* Lighter Emerald-50 */
+            padding: 1.5rem;
+            border-radius: 0.75rem; /* rounded-xl */
+            border: 1px solid #D1FAE5; /* Emerald-100 */
+        }
+        .bg-section-accented h4 {
+            color: #065F46; /* Emerald-700 */
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        .bg-section-accented p {
+            color: #047857; /* Emerald-600 */
+            font-size: 0.9rem;
+        }
+        .bg-section-accented .icon-accent {
+            color: #059669; /* Emerald-500 */
+            font-size: 2rem; /* text-3xl */
+        }
+
+        /* Mobile Menu */
+        #mobile-menu {
+            background-color: #FFFFFF; 
+            border-top: 1px solid #E2E8F0; /* Slate-200 */
+        }
+        #mobile-menu a {
+             border-color: #E2E8F0; /* Slate-200 */
+        }
+
+        /* Growth Card Styles */
+        .growth-card { /* Inherits from modern-card implicitly if class is added */
+            padding: 1.5rem;
+        }
+        .growth-card img.logo-img { 
+            border: 2px solid #059669; /* Emerald-500 */
+            width: 72px; /* Slightly smaller */
+            height: 72px;
+        }
+        .growth-card h4 { 
+            color: #1E293B; /* Slate-800 */
+            font-size: 1.2rem;
+        }
+        .growth-card .text-gray-500 { color: #64748B; } /* Slate-500 */
+        .growth-card .text-red-500 { color: #EF4444; } 
+        .growth-card .text-red-400 { color: #F87171; } 
+        .growth-card .text-green-500 { color: #10B981; } 
+        .growth-card .text-green-400 { color: #34D399; } 
+        .growth-card .text-orange-500 { color: #F97316; } 
+        .growth-card .text-orange-400 { color: #FB923C; } 
+        .growth-card .fa-long-arrow-alt-right { color: #059669; } /* Emerald-500 */
+        .growth-card .text-gray-600 { color: #475569; } /* Slate-600 */
+
+        /* --- Animated Hero Background --- */
+        .hero-animated-bg {
+            background: linear-gradient(180deg, #F0FDF4, #F9FAFB, #F3F4F6, #F9FAFB, #F0FDF4 ); /* Lighter Greens and Grays */
+            background-size: 100% 200%; 
+            animation: animateHeroBackground 20s ease-in-out infinite alternate; /* Smoother, alternating animation */
+        }
+        @keyframes animateHeroBackground {
+            0% { background-position-y: 100%; }
+            100% { background-position-y: 0%; }
+        }
+        .hero-section .text-gray-900 { color: #1E293B; } /* Slate-800 */
+        .hero-section .text-gray-700 { color: #334155; } /* Slate-700 */
+        .hero-section .bg-emerald-300 { background-color: #A7F3D0; opacity: 0.15;} /* Emerald-200 blur */
+        .hero-section .bg-teal-300 { background-color: #5EEAD4; opacity: 0.15;} /* Teal-300 blur */
+
+
+        /* --- "Why It Works" Section Styles --- */
+        .chart-container { /* Inherits from modern-card */
+            padding: 2.5rem;
+        }
+        .chart-container h4 { color: #1E293B; } 
+        .bar-label {
+            color: #334155; /* Slate-700 */
+        }
+        .bar-label.font-semibold { color: #065F46; } /* Emerald-700 */
+        .bar-tcr { background-color: #059669; } /* Emerald-500 */
+        .bar-other { background-color: #94A3B8; } /* Slate-400 */
+
+        .reminder-visual {
+            background-color: #F0FDF4; /* Lighter Emerald-50 */
+            padding: 2rem; 
+            border: 1px solid #A7F3D0; /* Emerald-200 */
+        }
+        .reminder-visual p { color: #065F46; } /* Emerald-700 */
+        .thought-bubble {
+            background-color: #FFFFFF; 
+            border: 1px solid #059669; /* Emerald-500 */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+        }
+        .thought-bubble p { color: #1E293B; } /* Slate-800 */
+
+        /* --- "Make Johnny's Choice" Section Styles --- */
+        .benefit-item { /* Inherits from modern-card */
+            text-align: center;
+        }
+        .benefit-item h4 { color: #064E3B; } /* Emerald-800 */
+        .benefit-item p { color: #475569; } /* Slate-600 */
+        .text-brand-green { 
+            color: #059669; /* Emerald-500 */
+        }
+        .benefit-icon {
+             color: #059669; /* Emerald-500 */
+             font-size: 2.75rem; /* Slightly larger */
+        }
+
+        /* --- "Additional Exclusive Benefits" Section Styles --- */
+        .exclusive-benefit-item {
+            background-color: #FFFFFF; 
+            border: 1px solid #E2E8F0; /* Slate-200 */
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .exclusive-benefit-item .icon {
+            color: #059669; /* Emerald-500 */
+        }
+        .exclusive-benefit-item p { color: #334155; } /* Slate-700 */
+
+        .urgency-block {
+            background-color: #F0FDF4; /* Lighter Emerald-50 */
+            border: 2px solid #059669; /* Emerald-500 */
+            box-shadow: 0 5px 15px rgba(5, 150, 105, 0.1); 
+        }
+        .urgency-block h3 { color: #065F46; } /* Emerald-700 */
+        .urgency-block p { color: #047857; } /* Emerald-600 */
+        
+        .trust-line {
+            color: #475569; /* Slate-600 */
+        }
+        .trust-line .icon {
+            color: #059669; /* Emerald-500 */
+        }
+        .trust-line .text-amber-600 { color: #047857; } /* Emerald-600 */
+
+        /* --- "About TRC" Section Styles --- */
+        .about-trc-icon {
+            color: #059669; /* Emerald-500 */
+        }
+        #about-trc .text-gray-900 { color: #1E293B; } 
+        #about-trc .text-gray-700 { color: #334155; } 
+        #about-trc .text-gray-600 { color: #475569; } 
+        #about-trc .text-2xl span { color: #059669; } /* Heart icon */
+        #about-trc .bg-gray-50 { /* Card within About */
+            background-color: #F8FAFC; /* Slate-50 */
+            border-color: #E2E8F0; /* Slate-200 */
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .stat-badge {
+            background-color: #D1FAE5; /* Emerald-100 */
+            color: #065F46; /* Emerald-700 */
+            border: 1px solid #A7F3D0; /* Emerald-200 */
+        }
+        .stat-badge .icon {
+            color: #047857; /* Emerald-600 */
+        }
+
+        /* Limited Time Section Gradient */
+        .limited-time-section {
+             background-image: linear-gradient(to right, #065F46, #059669, #047857); /* Dark Greens */
+        }
+        .limited-time-section h3, .limited-time-section p { color: #FFFFFF; }
+        .limited-time-section .decoration-white\/60 { text-decoration-color: rgba(255,255,255,0.7); }
+
+
+        /* Footer */
+        footer.bg-gray-800 { background-color: #1E293B; } /* Slate-800 */
+        footer.text-gray-300 { color: #E2E8F0; } /* Slate-200 */
+        footer .border-gray-700 { border-color: #334155; } /* Slate-700 */
+        footer a:hover { color: #34D399; } /* Emerald-400 for a slightly brighter hover */
+        /* Remove specific hover:text-amber-400 from HTML if present, this rule will take over */
+        footer a.hover\:text-amber-400:hover { color: #34D399; }
+
+
+    </style>
+</head>
+<body class="antialiased">
+
+    <nav class="navbar py-3"> <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="#" class="text-3xl font-bold text-slate-800">TCR <span class="text-gradient">Luxury</span></a>
+
+            <div class="hidden md:flex items-center space-x-1"> <a href="#features" class="nav-link">Features</a>
+                <a href="#visualize-growth" class="nav-link">Results</a>
+                <a href="#why-it-works" class="nav-link">Why It Works</a> 
+                <a href="#make-johnnys-choice" class="nav-link">Benefits</a> 
+                <a href="#about-trc" class="nav-link">About TRC</a>
+                <a href="#pricing" class="nav-link">Pricing</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+                <a href="#secure-spot" class="btn btn-primary ml-3 text-sm py-2 px-5">Sign Up</a> </div>
+
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="mobile-menu-button focus:outline-none p-2"> <svg viewBox="0 0 20 20" fill="currentColor" class="menu-icon">
+                        <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden shadow-lg"> <a href="#features" class="block nav-link text-center py-3 border-t">Features</a>
+            <a href="#visualize-growth" class="block nav-link text-center py-3 border-t">Results</a>
+            <a href="#why-it-works" class="block nav-link text-center py-3 border-t">Why It Works</a> 
+            <a href="#make-johnnys-choice" class="block nav-link text-center py-3 border-t">Benefits</a> 
+            <a href="#about-trc" class="block nav-link text-center py-3 border-t">About TRC</a>
+            <a href="#pricing" class="block nav-link text-center py-3 border-t">Pricing</a>
+            <a href="#faq" class="block nav-link text-center py-3 border-t">FAQ</a>
+            <a href="#secure-spot" class="block btn btn-primary w-full text-center mt-2 py-3 rounded-none">Sign Up</a>
+        </div>
+    </nav>
+
+    <section class="hero-section hero-animated-bg relative py-24 md:py-32 overflow-hidden">
+        <div class="absolute top-1/4 left-1/4 w-72 h-72 bg-emerald-300 opacity-10 rounded-full filter blur-3xl animate-pulse"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-teal-300 opacity-10 rounded-full filter blur-3xl animate-pulse animation-delay-2000"></div>
+
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <div class="max-w-3xl mx-auto mb-16 md:mb-20">
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 leading-tight text-gray-900">
+                    Explosive Review Growth for <br class="hidden md:inline"> <span class="text-gradient">One Columbus Pizzeria</span> Only.
+                </h1>
+                <p class="text-lg md:text-xl mb-10 text-gray-700 max-w-2xl mx-auto">
+                    Gain 10–15% more authentic reviews—automatically. This exclusive opportunity is limited to a single local pizzeria.
+                </p>
+                <a href="#features" class="btn btn-primary text-lg px-10 py-4">
+                    Discover The Premier Advantage
+                </a>
+            </div>
+
+            <div class="relative z-10 mt-16">
+                 <h3 class="text-2xl font-semibold text-slate-700 mb-10">See The Transformation</h3>
+                <div class="grid md:grid-cols-3 gap-x-6 gap-y-8 max-w-5xl mx-auto">
+                    <div class="growth-card modern-card">
+                        <img src="https://placehold.co/80x80/059669/FFFFFF?text=PIZZA+A" alt="Pizzeria A Logo" class="logo-img mx-auto mb-5 rounded-lg" onerror="this.src='https://placehold.co/80x80/cccccc/333333?text=Logo+Error'">
+                        <h4 class="text-xl font-semibold mb-4 text-center">Mama Mia's Pizzeria</h4>
+                        <div class="flex justify-between items-center">
+                            <div class="text-center px-2">
+                                <p class="text-gray-500 text-xs uppercase tracking-wider mb-1">Before</p>
+                                <p class="text-3xl font-bold text-red-500 flex items-center justify-center">2.8 <i class="fas fa-star text-lg ml-1 text-red-400"></i></p>
+                                <p class="text-gray-500 text-xs mt-1">45 Reviews</p>
+                            </div>
+                            <i class="fas fa-long-arrow-alt-right text-4xl mx-2 sm:mx-3"></i>
+                            <div class="text-center px-2">
+                                <p class="text-gray-500 text-xs uppercase tracking-wider mb-1">After TCR</p>
+                                <p class="text-3xl font-bold text-green-500 flex items-center justify-center">4.7 <i class="fas fa-star text-lg ml-1 text-green-400"></i></p>
+                                <p class="text-gray-500 text-xs mt-1">350+ Reviews</p>
+                            </div>
+                        </div>
+                         <p class="text-xs text-gray-600 italic mt-5 text-center">"Our phones started ringing more, and online orders shot up!"</p>
+                    </div>
+                    <div class="growth-card modern-card">
+                        <img src="https://placehold.co/80x80/059669/FFFFFF?text=CRUST+CO" alt="Pizzeria B Logo" class="logo-img mx-auto mb-5 rounded-lg" onerror="this.src='https://placehold.co/80x80/cccccc/333333?text=Logo+Error'">
+                        <h4 class="text-xl font-semibold mb-4 text-center">Columbus Crust Co.</h4>
+                         <div class="flex justify-between items-center">
+                            <div class="text-center px-2">
+                                <p class="text-gray-500 text-xs uppercase tracking-wider mb-1">Before</p>
+                                <p class="text-3xl font-bold text-red-500 flex items-center justify-center">3.1 <i class="fas fa-star text-lg ml-1 text-red-400"></i></p>
+                                <p class="text-gray-500 text-xs mt-1">60 Reviews</p>
+                            </div>
+                            <i class="fas fa-long-arrow-alt-right text-4xl mx-2 sm:mx-3"></i>
+                            <div class="text-center px-2">
+                                <p class="text-gray-500 text-xs uppercase tracking-wider mb-1">After TCR</p>
+                                <p class="text-3xl font-bold text-green-500 flex items-center justify-center">4.9 <i class="fas fa-star text-lg ml-1 text-green-400"></i></p>
+                                <p class="text-gray-500 text-xs mt-1">480+ Reviews</p>
+                            </div>
+                        </div>
+                        <p class="text-xs text-gray-600 italic mt-5 text-center">"We're finally getting the recognition we deserve online."</p>
+                    </div>
+                    <div class="growth-card modern-card md:col-span-1"> 
+                         <img src="https://placehold.co/80x80/059669/FFFFFF?text=SLICE+SPOT" alt="Pizzeria C Logo" class="logo-img mx-auto mb-5 rounded-lg" onerror="this.src='https://placehold.co/80x80/cccccc/333333?text=Logo+Error'">
+                        <h4 class="text-xl font-semibold mb-4 text-center">The Slice Spot</h4>
+                         <div class="flex justify-between items-center">
+                            <div class="text-center px-2">
+                                <p class="text-gray-500 text-xs uppercase tracking-wider mb-1">Before</p>
+                                <p class="text-3xl font-bold text-orange-500 flex items-center justify-center">3.5 <i class="fas fa-star text-lg ml-1 text-orange-400"></i></p>
+                                <p class="text-gray-500 text-xs mt-1">110 Reviews</p>
+                            </div>
+                            <i class="fas fa-long-arrow-alt-right text-4xl mx-2 sm:mx-3"></i>
+                            <div class="text-center px-2">
+                                <p class="text-gray-500 text-xs uppercase tracking-wider mb-1">After TCR</p>
+                                <p class="text-3xl font-bold text-green-500 flex items-center justify-center">4.6 <i class="fas fa-star text-lg ml-1 text-green-400"></i></p>
+                                <p class="text-gray-500 text-xs mt-1">600+ Reviews</p>
+                            </div>
+                        </div>
+                        <p class="text-xs text-gray-600 italic mt-5 text-center">"The automated system is a game-changer for collecting reviews."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="premier-advantage-section py-16 md:py-24 bg-section-subtle">
+        <div class="container mx-auto px-6">
+            <h3 class="section-title">The <span class="text-gradient">Premier Advantage</span> You'll Receive</h3>
+            <p class="section-subtitle">
+                Our comprehensive suite of tools and services are designed to put you ahead of the competition.
+            </p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="feature-card modern-card">
+                    <div class="icon"><i class="fas fa-star"></i></div>
+                    <h4 class="text-xl font-semibold mb-2">Dedicated Review Survey Funnel</h4>
+                    <p>Our unique survey funnel ensures every customer has a chance to share their experience.</p>
+                </div>
+                <div class="feature-card modern-card">
+                    <div class="icon"><i class="fas fa-mouse-pointer"></i></div>
+                    <h4 class="text-xl font-semibold mb-2">Choose Your Review Platform Emphasis</h4>
+                    <p>Flexibility to focus your efforts on the review collection strategy as needed.</p>
+                </div>
+                <div class="feature-card modern-card">
+                    <div class="icon"><i class="fas fa-cogs"></i></div>
+                    <h4 class="text-xl font-semibold mb-2">Multiple Possibilities (POS, Email, etc.)</h4>
+                    <p>Seamlessly integrate review requests into your existing customer touchpoints.</p>
+                </div>
+                <div class="feature-card modern-card">
+                    <div class="icon"><i class="fas fa-qrcode"></i></div>
+                    <h4 class="text-xl font-semibold mb-2">Custom QR Codes for Reviews</h4>
+                    <p>Print-ready QR codes make it simple and easy for customers to access.</p>
+                </div>
+                <div class="feature-card modern-card">
+                     <div class="icon"><i class="fas fa-link"></i></div>
+                    <h4 class="text-xl font-semibold mb-2">Shortlink to Request Reviews</h4>
+                    <p>Convenient shortlinks for your team to reach customers effectively.</p>
+                </div>
+                <div class="feature-card modern-card">
+                    <div class="icon"><i class="fas fa-chart-pie"></i></div>
+                    <h4 class="text-xl font-semibold mb-2">Gain Valuable Customer Insights</h4>
+                    <p>Understand your customers better and make data-driven decisions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 md:py-24 bg-slate-50"> 
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12 md:mb-16">
+                <h3 class="section-title">Don't Lose Consumers to <span class="text-gradient">Competitors</span></h3>
+                <p class="section-subtitle">
+                    Optimize your listings, improve your rankings on sites like Google, and gain a significant edge in the Columbus market.
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-section-accented p-6 rounded-xl text-center transition-all duration-300 hover:shadow-lg hover:scale-105">
+                    <div class="icon-accent mb-4"><i class="fas fa-medal"></i></div>
+                    <h4 class="text-lg font-semibold mb-2">Dedicated Program Success Manager</h4>
+                    <p class="text-sm">We do the heavy lifting for you, ensuring your program's success.</p>
+                </div>
+                 <div class="bg-section-accented p-6 rounded-xl text-center transition-all duration-300 hover:shadow-lg hover:scale-105">
+                    <div class="icon-accent mb-4"><i class="fas fa-headset"></i></div>
+                    <h4 class="text-lg font-semibold mb-2">1-1, US Phone & Email Support</h4>
+                    <p class="text-sm">Get personalized support whenever you need it.</p>
+                </div>
+                 <div class="bg-section-accented p-6 rounded-xl text-center transition-all duration-300 hover:shadow-lg hover:scale-105">
+                    <div class="icon-accent mb-4"><i class="fas fa-shield-alt"></i></div>
+                    <h4 class="text-lg font-semibold mb-2">100% Satisfaction Guarantee</h4>
+                    <p class="text-sm">Enroll with peace of mind with our full guarantee.</p>
+                </div>
+                 <div class="bg-section-accented p-6 rounded-xl text-center transition-all duration-300 hover:shadow-lg hover:scale-105">
+                    <div class="icon-accent mb-4"><i class="far fa-calendar-times"></i></div>
+                    <h4 class="text-lg font-semibold mb-2">Cancel Anytime, Keep Your Listings</h4>
+                    <p class="text-sm">No long-term contracts. Your listings value, if you decide to leave.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="visualize-growth" class="py-16 md:py-24 bg-section-subtle">
+        <div class="container mx-auto px-6">
+            <h3 class="section-title">From <span class="text-gradient">Struggling</span> to <span class="text-gradient">Star-Rated</span></h3>
+            <p class="section-subtitle">
+                See how TCR Luxury transforms local pizzerias by dramatically increasing their positive reviews and online visibility.
+            </p>
+            <div class="grid md:grid-cols-3 gap-x-6 gap-y-8 mt-12">
+                 <div class="growth-card modern-card">
+                    <img src="https://placehold.co/80x80/059669/FFFFFF?text=PIZZA+A" alt="Pizzeria A Logo" class="logo-img mx-auto mb-5 rounded-lg" onerror="this.src='https://placehold.co/80x80/cccccc/333333?text=Logo+Error'">
+                    <h4 class="text-xl font-semibold mb-4 text-center">Mama Mia's Pizzeria</h4>
+                    <div class="flex justify-between items-center">
+                        <div class="text-center px-2">
+                            <p class="text-gray-500 text-xs uppercase tracking-wider mb-1">Before</p>
+                            <p class="text-3xl font-bold text-red-500 flex items-center justify-center">2.8 <i class="fas fa-star text-lg ml-1 text-red-400"></i></p>
+                            <p class="text-gray-500 text-xs mt-1">45 Reviews</p>
+                        </div>
+                        <i class="fas fa-long-arrow-alt-right text-4xl mx-2 sm:mx-3"></i>
+                        <div class="text-center px-2">
+                            <p class="text-gray-500 text-xs uppercase tracking-wider mb-1">After TCR</p>
+                            <p class="text-3xl font-bold text-green-500 flex items-center justify-center">4.7 <i class="fas fa-star text-lg ml-1 text-green-400"></i></p>
+                            <p class="text-gray-500 text-xs mt-1">350+ Reviews</p>
+                        </div>
+                    </div>
+                     <p class="text-xs text-gray-600 italic mt-5 text-center">"Our phones started ringing more, and online orders shot up!"</p>
+                </div>
+                <div class="growth-card modern-card">
+                    <img src="https://placehold.co/80x80/059669/FFFFFF?text=CRUST+CO" alt="Pizzeria B Logo" class="logo-img mx-auto mb-5 rounded-lg" onerror="this.src='https://placehold.co/80x80/cccccc/333333?text=Logo+Error'">
+                    <h4 class="text-xl font-semibold mb-4 text-center">Columbus Crust Co.</h4>
+                     <div class="flex justify-between items-center">
+                        <div class="text-center px-2">
+                            <p class="text-gray-500 text-xs uppercase tracking-wider mb-1">Before</p>
+                            <p class="text-3xl font-bold text-red-500 flex items-center justify-center">3.1 <i class="fas fa-star text-lg ml-1 text-red-400"></i></p>
+                            <p class="text-gray-500 text-xs mt-1">60 Reviews</p>
+                        </div>
+                        <i class="fas fa-long-arrow-alt-right text-4xl mx-2 sm:mx-3"></i>
+                        <div class="text-center px-2">
+                            <p class="text-gray-500 text-xs uppercase tracking-wider mb-1">After TCR</p>
+                            <p class="text-3xl font-bold text-green-500 flex items-center justify-center">4.9 <i class="fas fa-star text-lg ml-1 text-green-400"></i></p>
+                            <p class="text-gray-500 text-xs mt-1">480+ Reviews</p>
+                        </div>
+                    </div>
+                    <p class="text-xs text-gray-600 italic mt-5 text-center">"We're finally getting the recognition we deserve online."</p>
+                </div>
+                <div class="growth-card modern-card md:col-span-1"> 
+                     <img src="https://placehold.co/80x80/059669/FFFFFF?text=SLICE+SPOT" alt="Pizzeria C Logo" class="logo-img mx-auto mb-5 rounded-lg" onerror="this.src='https://placehold.co/80x80/cccccc/333333?text=Logo+Error'">
+                    <h4 class="text-xl font-semibold mb-4 text-center">The Slice Spot</h4>
+                     <div class="flex justify-between items-center">
+                        <div class="text-center px-2">
+                            <p class="text-gray-500 text-xs uppercase tracking-wider mb-1">Before</p>
+                            <p class="text-3xl font-bold text-orange-500 flex items-center justify-center">3.5 <i class="fas fa-star text-lg ml-1 text-orange-400"></i></p>
+                            <p class="text-gray-500 text-xs mt-1">110 Reviews</p>
+                        </div>
+                        <i class="fas fa-long-arrow-alt-right text-4xl mx-2 sm:mx-3"></i>
+                        <div class="text-center px-2">
+                            <p class="text-gray-500 text-xs uppercase tracking-wider mb-1">After TCR</p>
+                            <p class="text-3xl font-bold text-green-500 flex items-center justify-center">4.6 <i class="fas fa-star text-lg ml-1 text-green-400"></i></p>
+                            <p class="text-gray-500 text-xs mt-1">600+ Reviews</p>
+                        </div>
+                    </div>
+                    <p class="text-xs text-gray-600 italic mt-5 text-center">"The automated system is a game-changer for collecting reviews."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="why-it-works" class="py-16 md:py-24 bg-slate-50"> 
+        <div class="container mx-auto px-6">
+            <h3 class="section-title">Proven to Outperform Texts, Emails, and Signage</h3>
+            <p class="section-subtitle">
+                In a 2020 market research study of 210 U.S. local businesses, The Review Card consistently outperformed other review request methods—thanks to its physical, personalized design.
+            </p>
+
+            <div class="grid lg:grid-cols-5 gap-8 lg:gap-12 items-center mt-12">
+                <div class="lg:col-span-3 chart-container modern-card">
+                    <h4 class="text-xl font-semibold mb-6 text-center text-slate-700">Review Collection Effectiveness (%)</h4>
+                    <div class="space-y-4">
+                        <div class="bar-wrapper">
+                            <div class="bar-label font-semibold">The Review Card</div>
+                            <div class="bar bar-tcr" style="width: 96%;">32%</div> 
+                        </div>
+                        <div class="bar-wrapper">
+                            <div class="bar-label">Text Message</div>
+                            <div class="bar bar-other" style="width: 54%;">18%</div> 
+                        </div>
+                        <div class="bar-wrapper">
+                            <div class="bar-label">Email</div>
+                            <div class="bar bar-other" style="width: 36%;">12%</div> 
+                        </div>
+                        <div class="bar-wrapper">
+                            <div class="bar-label">Verbal Request</div>
+                            <div class="bar bar-other" style="width: 27%;">9%</div> 
+                        </div>
+                        <div class="bar-wrapper">
+                            <div class="bar-label">In-store Signage</div>
+                            <div class="bar bar-other" style="width: 15%;">5%</div> 
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-2 reminder-visual flex flex-col items-center text-center modern-card">
+                    <img src="https://placehold.co/200x120/059669/FFFFFF?text=Review+Card" alt="Review Card on a table" class="rounded-lg mb-6 shadow-md" onerror="this.src='https://placehold.co/200x120/cccccc/333333?text=Visual+Error'">
+                    <div class="thought-bubble mb-4">
+                        <p class="text-lg font-medium">"Oh yeah, I should leave a review!"</p>
+                    </div>
+                    <p class="font-medium">
+                        “The Review Card stays in sight and in mind—making customers 2x more likely to follow through.”
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="make-johnnys-choice" class="py-16 md:py-24 bg-white"> 
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-4 section-title">
+                Make Johnny’s Pizza the <span class="text-brand-green">Go-To Choice</span> for Columbus Locals
+            </h2>
+            <p class="text-lg md:text-xl text-center max-w-3xl mx-auto mb-12 md:mb-16 section-subtitle">
+                Boost credibility, outshine competitors, and grow your reviews—without lifting a finger.
+            </p>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="benefit-item modern-card p-6 rounded-xl shadow-lg border"> 
+                    <div class="benefit-icon text-5xl mb-5"><i class="fas fa-rocket"></i></div>
+                    <h4 class="text-xl font-semibold mb-3">No Setup Required</h4>
+                    <p class="text-sm leading-relaxed">
+                        Start getting more reviews <strong>immediately</strong>. Just hand out your Review Cards—no tech, no training, no hassle.
+                    </p>
+                </div>
+                <div class="benefit-item modern-card p-6 rounded-xl shadow-lg border">
+                    <div class="benefit-icon text-5xl mb-5"><i class="fas fa-puzzle-piece"></i></div>
+                    <h4 class="text-xl font-semibold mb-3">Works With Your Current Systems</h4>
+                    <p class="text-sm leading-relaxed">
+                        Already using email or text requests? TRC layers on top to <strong>maximize total review growth</strong> without replacing what’s working.
+                    </p>
+                </div>
+                <div class="benefit-item modern-card p-6 rounded-xl shadow-lg border">
+                    <div class="benefit-icon text-5xl mb-5"><i class="fas fa-shield-alt"></i></div>
+                    <h4 class="text-xl font-semibold mb-3">100% Money-Back Guarantee</h4>
+                    <p class="text-sm leading-relaxed">
+                        Love the results or <strong>pay nothing</strong>. No commitment, cancel anytime—and keep every review you earned.
+                    </p>
+                </div>
+            </div>
+            <div class="text-center mt-12 md:mt-16">
+                <a href="#secure-spot" class="btn btn-primary text-lg px-10 py-4">
+                    👉 Check Availability for Johnny’s Pizza
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="additional-benefits" class="py-16 md:py-24 bg-slate-50"> 
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-4 section-title">
+                Additional <span class="text-brand-green">Exclusive Benefits</span> for TRC Members
+            </h2>
+            <p class="text-lg md:text-xl text-center max-w-3xl mx-auto mb-12 md:mb-16 section-subtitle">
+                Get more than just reviews — get the tools, confidence, and exclusivity that help your pizzeria stand out in Columbus.
+            </p>
+
+            <div class="max-w-2xl mx-auto space-y-3 mb-12 md:mb-16">
+                <div class="exclusive-benefit-item modern-card">
+                    <span class="icon"><i class="fas fa-bolt"></i></span>
+                    <p><strong>Boost Reviews Automatically</strong> – No follow-ups or tech needed</p>
+                </div>
+                <div class="exclusive-benefit-item modern-card">
+                    <span class="icon"><i class="fas fa-award"></i></span>
+                    <p><strong>Invite-Only Membership</strong> – Limited to one pizzeria per city</p>
+                </div>
+                <div class="exclusive-benefit-item modern-card">
+                    <span class="icon"><i class="fas fa-magic"></i></span> 
+                    <p><strong>Hands-Free Implementation</strong> – Cards do the work for you</p>
+                </div>
+                <div class="exclusive-benefit-item modern-card">
+                    <span class="icon"><i class="fas fa-layer-group"></i></span>
+                    <p><strong>Compatible With Your Current Review System</strong> – Works alongside email/text</p>
+                </div>
+                <div class="exclusive-benefit-item modern-card">
+                    <span class="icon"><i class="fas fa-lock"></i></span>
+                    <p><strong>Exclusive Territory Lock-In</strong> – Be the only Columbus pizzeria in the program</p>
+                </div>
+                <div class="exclusive-benefit-item modern-card">
+                    <span class="icon"><i class="fas fa-shield-alt"></i></span>
+                    <p><strong>100% Money-Back Guarantee</strong> – Cancel anytime, keep your reviews</p>
+                </div>
+                <div class="exclusive-benefit-item modern-card">
+                    <span class="icon"><i class="fas fa-handshake-slash"></i></span>
+                    <p><strong>No Setup, No Contracts</strong> – Easy in, easy out</p>
+                </div>
+            </div>
+
+            <div class="urgency-block max-w-2xl mx-auto mb-12 md:mb-16 modern-card">
+                <h3 class="text-2xl font-bold mb-3"><i class="fas fa-lock mr-2"></i>This Offer Is Available Today Only</h3>
+                <p class="text-lg">
+                    We’ve selected <strong>Johnny’s Pizza</strong> as our first choice for Columbus.
+                </p>
+                <p class="mt-2">
+                    If we don’t hear from you soon, this exclusive spot will be opened up to another local pizzeria.
+                </p>
+            </div>
+
+            <div class="text-center">
+                <p class="text-xl font-semibold mb-6 max-w-xl mx-auto text-slate-800">
+                    Lock in your spot now and become the <span class="text-brand-green">only Columbus pizzeria</span> using TRC to grow your reviews.
+                </p>
+                <a href="#secure-spot" class="btn btn-primary text-xl px-10 py-4">
+                    Secure Your Spot
+                </a>
+                <p class="mt-4 text-sm trust-line">
+                    <span class="icon"><i class="fas fa-shield-alt"></i></span>
+                    💸 100% Money-Back Guarantee – Cancel Anytime & Keep All Reviews You Earn
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about-trc" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-6 section-title">
+                About The <span class="text-brand-green">Review Card (TRC)</span>
+            </h2>
+            <p class="text-xl text-center max-w-3xl mx-auto mb-8 section-subtitle text-slate-700">
+                <span class="text-2xl" style="color: #059669;">💚</span> Trusted by <strong>Thousands of Local Businesses</strong> for Over <strong>7 Years</strong>
+            </p>
+            <p class="text-lg text-center max-w-3xl mx-auto mb-12 md:mb-16 leading-relaxed section-subtitle">
+                TRC is the home of the original Review Card—a simple, physical tool that’s helped businesses across the U.S. consistently grow their online reviews. For the past 7+ years, we've supported thousands of small businesses, from local restaurants to salons and shops, in building stronger reputations and more visibility through authentic, customer-driven feedback.
+            </p>
+
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="modern-card p-8">
+                    <h3 class="text-2xl font-semibold mb-6 flex items-center text-slate-800">
+                        <span class="text-3xl mr-3" style="color: #059669;">🌍</span> About the Local Community Review Program
+                    </h3>
+                    <p class="mb-6 leading-relaxed text-slate-700">
+                        The Local Community Review Program is our way of giving back to small businesses—starting one city at a time. Each participating business gets:
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <span class="about-trc-icon text-xl"><i class="fas fa-comments"></i></span>
+                            <span class="text-slate-700">A <strong>personalized review strategy</strong> tailored to local customers</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="about-trc-icon text-xl"><i class="fas fa-map-pin"></i></span>
+                            <span class="text-slate-700"><strong>Territorial exclusivity</strong> — only one business per category, per area</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="about-trc-icon text-xl"><i class="fas fa-tools"></i></span>
+                            <span class="text-slate-700">Access to <strong>proven, data-driven tools</strong> that simplify review collection</span>
+                        </li>
+                    </ul>
+                    <p class="mt-6 font-semibold italic text-slate-600">
+                        This invite-only initiative ensures your pizzeria stands out — without adding more to your plate.
+                    </p>
+                </div>
+
+                <div class="bg-slate-50 p-8 rounded-xl shadow-lg border border-slate-200 modern-card">
+                    <img src="https://placehold.co/500x300/D1FAE5/065F46?text=Local+Businesses+Thriving" alt="Collage of businesses using TRC cards" class="rounded-lg mb-8 w-full object-cover h-64" onerror="this.src='https://placehold.co/500x300/cccccc/333333?text=Visual+Error'">
+                    <div class="space-y-4 text-center">
+                        <div class="stat-badge">
+                            <span class="icon text-xl"><i class="fas fa-calendar-alt"></i></span>
+                            <span>7+ Years in Business</span>
+                        </div>
+                        <div class="stat-badge">
+                            <span class="icon text-xl"><i class="fas fa-users"></i></span>
+                            <span>Thousands of Businesses Helped</span>
+                        </div>
+                        <div class="stat-badge">
+                            <span class="icon text-xl"><i class="fas fa-check-circle"></i></span>
+                            <span>100% Satisfaction Guarantee</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="limited-time-section py-12 md:py-20">
+        <div class="container mx-auto px-6 text-center">
+            <h3 class="text-3xl md:text-4xl font-bold mb-3 text-white">Limited Time: <span class="underline decoration-wavy decoration-emerald-200/70">Exclusive Enrollment</span></h3>
+            <p class="text-lg md:text-xl text-emerald-50 max-w-3xl mx-auto">
+                While Your Presence Is Our First Choice, We Can Make This Program Available To Only A Limited Number Of Qualifying Brands In The Columbus Area.
+            </p>
+        </div>
+    </section>
+
+    <section id="pricing" class="choose-path-section py-16 md:py-24 bg-section-subtle">
+        <div class="container mx-auto px-6">
+            <h3 class="section-title">Choose Your Path to <span class="text-gradient">Reputation Excellence</span></h3>
+            <p class="section-subtitle">
+                Select the plan that best suits your business needs and start building a stellar reputation today.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center items-center md:items-stretch gap-8 max-w-4xl mx-auto">
+                <div class="pricing-plan modern-card flex-1">
+                    <h4 class="text-2xl font-semibold mb-3">Monthly Plan</h4>
+                    <p class="text-5xl font-extrabold mb-1 price-text">$497 <span class="text-lg font-normal text-muted">/month</span></p>
+                    <p class="text-sm font-semibold mb-6" style="color: #059669;">Save $99 Off</p> 
+                    <p class="text-xs text-muted mb-8">*Historical Low For This Program</p>
+                    <button class="btn btn-dark w-full">Select Monthly</button> 
+                </div>
+                <div class="pricing-plan modern-card featured flex-1 relative">
+                     <div class="absolute top-0 right-0 -mt-3 -mr-3 text-white text-xs font-bold uppercase px-3 py-1 rounded-full" style="background-color: #059669; color: #FFFFFF;">Most Popular</div> 
+                     <h4 class="text-2xl font-semibold mb-3">Annual Plan</h4>
+                    <p class="text-5xl font-extrabold mb-1 price-text">$970 <span class="text-lg font-normal text-muted">/year</span></p>
+                    <p class="text-sm font-semibold mb-6" style="color: #059669;">Save $99 Off</p>
+                    <p class="text-xs text-muted mb-8">*Historical Low For This Program</p>
+                    <button class="btn btn-primary w-full">Select Annual</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="secure-spot" class="secure-spot-section py-16 md:py-24 bg-slate-50">
+        <div class="container mx-auto px-6 max-w-2xl">
+            <h3 class="section-title">Secure Your <span class="text-gradient">Spot Now</span></h3>
+            <p class="section-subtitle">Complete the form below to begin your journey to reputation leadership.</p>
+            <form action="#" method="POST" class="space-y-6 form-container modern-card">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" name="name" id="name" class="form-input" placeholder="Your Full Name" required>
+                    </div>
+                    <div>
+                        <label for="business-name" class="form-label">Business Name</label>
+                        <input type="text" name="business-name" id="business-name" class="form-input" placeholder="Your Company Name" required>
+                    </div>
+                </div>
+                <div>
+                    <label for="business-address" class="form-label">Business Address</label>
+                    <input type="text" name="business-address" id="business-address" class="form-input" placeholder="123 Main St, Columbus, OH" required>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" name="email" id="email" class="form-input" placeholder="you@example.com" required>
+                    </div>
+                    <div>
+                        <label for="phone" class="form-label">Phone</label>
+                        <input type="tel" name="phone" id="phone" class="form-input" placeholder="(555) 123-4567" required>
+                    </div>
+                </div>
+                <div>
+                    <label for="credit-card" class="form-label">Credit Card</label>
+                    <input type="text" name="credit-card" id="credit-card" class="form-input" placeholder="•••• •••• •••• ••••" required>
+                </div>
+                <p class="text-xs pt-2 text-center text-slate-500">
+                    Lock In Your Spot As The Only Clientele In Your Area Using The Reputation Program to Get More Reviews.
+                </p>
+                <div>
+                    <button type="submit" class="btn btn-primary w-full text-lg">
+                        Try Risk-Free!
+                    </button>
+                </div>
+                <p class="text-xs mt-3 text-center text-slate-500">
+                    100% Money Back Guarantee. Cancel Anytime. <br>
+                    <span class="font-semibold" style="color: #047857;">Immediate Placement - Secure Checkout</span>
+                </p>
+            </form>
+        </div>
+    </section>
+
+    <section id="faq" class="faq-section py-16 md:py-24 bg-section-subtle">
+        <div class="container mx-auto px-6 max-w-3xl">
+            <h3 class="section-title">Frequently Asked <span class="text-gradient">Questions</span></h3>
+            <p class="section-subtitle">Find answers to common questions about our program and services.</p>
+            <div id="faq-accordion" class="space-y-3">
+                <div class="faq-item modern-card">
+                    <button class="flex justify-between items-center w-full text-left font-medium focus:outline-none" onclick="toggleFaq(this)">
+                        <span>What Happens After I Place My Order?</span>
+                        <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-content hidden">
+                        <p>Once your order is placed, our dedicated team will reach out to you within 24 business hours to begin the onboarding process. We'll guide you every step of the way to ensure a smooth setup and launch of your reputation management program.</p>
+                    </div>
+                </div>
+                <div class="faq-item modern-card">
+                    <button class="flex justify-between items-center w-full text-left font-medium focus:outline-none" onclick="toggleFaq(this)">
+                        <span>How Does the 100% Money Back Guarantee Work?</span>
+                        <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-content hidden">
+                        <p>We are confident in the value our program provides. If, for any reason, you are not satisfied within the first 30 days of your subscription, you can request a full refund. No questions asked. Your satisfaction is our priority.</p>
+                    </div>
+                </div>
+                </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-800 text-slate-300 py-12 text-sm border-t border-slate-700">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; <span id="currentYear"></span> TCR Luxury. All Rights Reserved.</p>
+            <p class="mt-2">
+                <a href="#" class="transition-colors">Privacy Policy</a> | <a href="#" class="transition-colors">Terms of Service</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // --- Navigation Bar Scroll Effect ---
+        const navbar = document.querySelector('.navbar');
+        window.onscroll = () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+            }
+        };
+
+        // --- Mobile Menu Toggle ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a'); 
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden'); 
+            });
+        });
+
+
+        // --- Basic FAQ Accordion Toggle ---
+        function toggleFaq(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('svg');
+            // Close other open FAQ items
+            document.querySelectorAll('#faq-accordion .faq-content:not(.hidden)').forEach(openContent => {
+                if (openContent !== content) {
+                    openContent.classList.add('hidden');
+                    const otherButton = openContent.previousElementSibling;
+                    if (otherButton && otherButton.querySelector('svg')) {
+                       otherButton.querySelector('svg').style.transform = 'rotate(0deg)';
+                    }
+                }
+            });
+
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                content.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // --- Smooth scroll for anchor links ---
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === "#") { // Handles clicking the main logo/brand link
+                    window.scrollTo({ top: 0, behavior: 'smooth' }); 
+                    return;
+                }
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const headerOffset = document.querySelector('.navbar').offsetHeight;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset - 20; // Adjusted offset
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>
